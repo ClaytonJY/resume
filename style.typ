@@ -12,9 +12,7 @@
   set page(
     paper: "us-letter",
     margin: (x: 0.65in, top: 0.58in, bottom: 0.58in),
-    footer: context align(right, text(size: 9pt, fill: muted)[
-      Clayton Yochum #h(8pt) #counter(page).display("1 / 1", both: true)
-    ]),
+    footer: context align(right, text(size: 9pt, fill: muted)[Clayton Yochum #h(8pt) #counter(page).display("1 / 1", both: true)]),
     footer-descent: 0.2in,
   )
   // Libertinus Serif ships with Typst; no fonts or packages to download.
@@ -22,9 +20,7 @@
   set par(leading: 0.5em, spacing: 7pt, justify: false)
   set list(indent: 11pt, body-indent: 5pt, tight: false, spacing: 7pt)
   set heading(numbering: none, outlined: true)
-  show heading.where(level: 1): it => block(
-    above: 18pt, below: 6pt, sticky: true,
-  )[
+  show heading.where(level: 1): it => block(above: 18pt, below: 6pt, sticky: true)[
     #stack(dir: ttb, spacing: 4pt,
       text(size: 10pt, weight: "bold", fill: accent, upper(it.body)),
       line(length: 100%, stroke: 0.5pt + accent),
@@ -68,10 +64,6 @@
   )
 ]
 
-#let scope(body) = block(above: 6pt, below: 9pt, sticky: true)[
-  #text(style: "italic", fill: muted)[#body]
-]
+#let scope(body) = block(above: 6pt, below: 9pt, sticky: true)[#text(style: "italic", fill: muted)[#body]]
 
-#let skill(label, body) = block(above: 0pt, below: 6pt)[
-  #strong(label) #body
-]
+#let skill(label, body) = block(above: 0pt, below: 6pt)[#strong(label) #body]
