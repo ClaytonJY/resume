@@ -1,0 +1,18 @@
+[tools]
+typst = "0.15.1"
+
+[tasks.build]
+description = "Compile the resume PDF"
+run = "typst compile resume.typ claytonjy-resume.pdf"
+
+[tasks.watch]
+description = "Recompile the PDF whenever the source changes"
+run = "typst watch resume.typ claytonjy-resume.pdf"
+
+[tasks.render]
+description = "Optional agent review: build page images (requires Poppler)"
+depends = ["build"]
+run = [
+  "mkdir -p tmp/pdfs",
+  "pdftoppm -r 130 -png claytonjy-resume.pdf tmp/pdfs/claytonjy-resume",
+]
