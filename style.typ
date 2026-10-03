@@ -5,9 +5,9 @@
 
 #let resume(body) = {
   set document(
-    title: "Clayton Yochum | ML Systems, Inference & GPU Infrastructure",
+    title: "Clayton Yochum | ML Systems, Performance & GPU Infrastructure",
     author: "Clayton Yochum",
-    keywords: ("machine learning", "inference", "GPU infrastructure", "ML systems"),
+    keywords: ("machine learning", "performance", "inference", "GPU infrastructure", "ML systems"),
   )
   set page(
     paper: "us-letter",
@@ -41,6 +41,11 @@
     align(right, text(size: 10pt, contact)),
   )
 ]
+
+#let summary(body) = {
+  set par(spacing: 11pt)
+  body
+}
 
 #let employer(name, location, body) = {
   block(above: 16pt, below: 6pt, sticky: true)[
