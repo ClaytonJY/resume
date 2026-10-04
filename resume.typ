@@ -11,24 +11,22 @@
 )
 
 #summary[
-  Machine learning systems engineer building production ML services and GPU infrastructure. I built one of the largest speech-to-text systems in the world, replatformed billions of sensor readings, trained models to automate a hedge fund, and much more.
-
-  I like building foundational technology on small teams, scaling systems and optimizing performance as the company grows.
+  Machine learning systems engineer building and optimizing production ML services and GPU infrastructure. I establish technical foundations on small teams and scale them through company growth.
 ]
 
 = Technical skills
 
 #skill(
-  "Machine learning:",
-  [Python, PyTorch, NVIDIA Triton, TensorRT-LLM, CTranslate2, NVIDIA Riva, vLLM],
+  "ML & inference:",
+  [PyTorch, NVIDIA Triton Inference Server, TensorRT-LLM, CTranslate2, NVIDIA Riva],
 )
 #skill(
   "Infrastructure:",
-  [Kubernetes, GCP, AWS, Terraform, Helm, ArgoCD, KEDA, Temporal, GitHub Actions],
+  [Kubernetes (GKE), GCP, AWS, Terraform, Helm, ArgoCD, KEDA, GitHub Actions],
 )
 #skill(
   "Services & data:",
-  [FastAPI, Pydantic, asyncio, PostgreSQL, TimescaleDB, WebSockets, gRPC],
+  [Python, asyncio, FastAPI, Pydantic, Temporal, gRPC, WebSockets, #box[SQL (PostgreSQL, TimescaleDB)]],
 )
 
 = Experience
@@ -36,42 +34,42 @@
 #employer("Abridge", "Remote")[
   #role("Senior Machine Learning Engineer", "Aug 2024 - Dec 2025")
   #role("Machine Learning Engineer", "Apr 2023 - Jul 2024")
-  #scope[Joined a Series B healthcare startup as employee \~25 and ML engineer \#2; the company grew to >400 employees and a \$5B valuation]
+  #scope[Joined a Series B healthcare startup as employee \~25 and ML engineer \#2; company grew to 400+ employees]
 
-  - Created and operated the in-house speech-recognition platform on GKE, transcribing *4-8 hours of audio per second* in production.
+  - Built and operated a multi-model ASR platform on GKE for models developed by the research team, separating preprocessing, inference, and postprocessing into Triton stages with tuned concurrency and parallel execution; processed *4 audio-hours per second* at daily peaks and up to 8 during backlog recovery.
 
-  - Migrated ASR inference from *2,000+ NVIDIA L4 GPUs* running CTranslate2 to *100-200 H100s* running TensorRT-LLM for the same production traffic load.
+  - Migrated Whisper ASR from *2,000+ NVIDIA L4 GPUs* to *100-200 H100s* by replacing CTranslate2 with TensorRT-LLM and increasing batch sizes, serving the same production load at lower cost per audio-minute.
 
-  - Deployed *real-time ASR* on GKE and H100s using NVIDIA Parakeet and Riva, delivering live in-app transcription over WebSockets and gRPC.
+  - Deployed real-time ASR on GKE and H100s using NVIDIA Parakeet and Riva, delivering live in-app transcription over WebSockets and gRPC.
+
+  - Partnered with Platform to establish shared GKE deployment practices, writing the company's first in-house Helm chart and helping move services from Cloud Functions and App Engine to GKE.
 
   - Built a unified FastAPI interface across ML services, standardizing upstream integration, observability, and operational patterns.
 
-  - Introduced Temporal for complex asynchronous workflows, extending adoption beyond ML to other engineering teams.
+  - Introduced Temporal for complex asynchronous workflows and championed its adoption across *nearly all engineering teams*.
 
-  - Engineered a custom approach to monorepo development, supporting dozens of engineers while minimizing churn and automating semantic versioning.
+  - Built monorepo development and release tooling for dozens of engineers, enabling cross-component changes in a single PR and reducing support requests for PRs and deployments.
 
-  - Established shared GKE deployment practices with Platform using Terraform, Helm, ArgoCD, and KEDA.
+  - Mentored engineers in asynchronous Python and Helm deployment, enabling them to build and deploy new services independently.
 
-  - Mentored engineers across ML and other teams through code reviews and hands-on support for service architecture and deployment patterns.
-
-  - Led ML incident response and investigations across application, Kubernetes, and networking layers.
+  - Led incident response for recurring egress port exhaustion and drove connection-reuse improvements across Python and JavaScript services.
 ]
 
 #employer("Socure", "Remote")[
   #role("Staff Data Engineer, Data Science Enablement & Operations", "Jun 2022 - Jan 2023")
   #scope[Most senior engineer supporting data science teams with tooling and process]
 
-  - Integrated an internal service into the primary pipeline to reduce customer onboarding time.
+  - Refined an internal batch API with service owners and shipped its Airflow integration.
 
-  - Wrote Python libraries to simplify Airflow pipeline development and migrated existing pipelines to new patterns.
+  - Generated a Python client for the customer-facing API and built reusable abstractions to simplify its use in Airflow pipelines.
 ]
 
 #employer("Betterment", "Remote")[
   #role("Lead Data Engineer", "Jun 2021 - Dec 2021")
   #scope[Senior engineer on a centralized data engineering team owning databases and pipelines]
 
-  - Rewrote core reporting pipelines in Airflow from R to Python.
-  - Introduced Pydantic for AWS Lambda tasks and simplified the data engineering platform's developer experience to increase contributions from other teams.
+  - Standardized core Airflow reporting on Python, replacing R to simplify maintenance and ownership.
+  - Introduced Pydantic for AWS Lambda tasks.
 ]
 
 // One editorial page break keeps both substantial earlier tenures together.
@@ -84,15 +82,13 @@
   #role("Staff Engineer, Data Science", "Mar 2019 - Jan 2021")
   #scope[First data science hire at a Series B industrial IoT startup]
 
-  - Led the migration of *billions of rows of core sensor data* from OpenTSDB to TimescaleDB/PostgreSQL, simplifying the stack and improving customer-facing responsiveness.
+  - Designed a unified TimescaleDB/PostgreSQL platform for sensor readings and metadata, migrating *billions of rows online* from OpenTSDB/EMR and enabling interactive customer graphing.
+
+  - Flattened an overly nested sensor data model through further online migrations to improve TimescaleDB write performance.
 
   - Served as technical lead for a company-wide API consolidation project, standardizing access to core sensor data across teams.
 
-  - Negotiated strict JSON Schema contracts with hardware teams to define interfaces for sensor data.
-
-  - Led the shift toward event-driven platform architecture on Kafka.
-
-  - Created Python libraries and AWS ECS services for automated failure detection from sensor data.
+  - Authored initial JSON Schema contracts for gateway-to-cloud data and secured senior-engineer buy-in on semantic versioning and compatibility requirements.
 
   - Wrote job descriptions and conducted interviews for subsequent data science hires.
 ]
@@ -101,17 +97,17 @@
   #role("Data Science Engineer", "Mar 2016 - Feb 2019")
   #scope[First full-time hire and lead engineer at a boutique data science consulting firm]
 
-  - Developed a semi-automated ML trading platform in R and Python for a mid-size hedge fund, running on GKE and Pachyderm and supporting *over \$100k in daily trading volume*.
+  - Led development of an *ML investment platform* for the firm's largest client, combining proprietary signals and external financial data in ensembles of regression, random forests, gradient boosting, and neural networks.
 
-  - Analyzed *billions of geolocation pings* with R and OpenStreetMap to support expert-witness testimony in a trucking fraud case.
+  - Built a backtesting platform and automated model evaluation, backtesting, and daily prediction workflows on Pachyderm and GKE.
 
-  - Developed and taught a *week-long R and SQL workshop* for analysts at a large federal institution.
+  - Analyzed billions of geolocation pings with R and OpenStreetMap to support expert-witness testimony in a trucking fraud case.
+
+  - Developed and taught a week-long R and SQL workshop for analysts at a large federal institution.
 
   - Introduced version control with Git and GitLab and cloud computing with AWS and GCP, establishing foundations for the firm's engineering work.
 
   - Hired and mentored junior data scientists.
-
-  - Contributed technical writing to the company blog, including #link("https://www.r-bloggers.com/2018/07/a-tour-of-timezones-troubles-in-r/")[A Tour of Timezones (& Troubles) in R].
 ]
 
 #employer("University of Michigan School of Social Work", "Ann Arbor, MI")[
@@ -119,8 +115,6 @@
   #scope[Industry consultant supporting a data-driven social work research lab]
 
   - Built predictive models to classify journal abstracts, redesigned pipelines for administrative data, and created reusable lab tooling.
-
-  - Taught source control and reproducible research to analysts and the broader School of Social Work.
 ]
 
 #employer("Barracuda Networks", "Ann Arbor, MI")[
@@ -133,13 +127,6 @@
   - Managed server infrastructure and developed R tooling for cloud capacity planning.
 
   - Identified performance regressions and worked with engineering to determine their causes.
-]
-
-#employer("Michigan Tech Research Institute", "Ann Arbor, MI")[
-  #role("Research Intern, Signal/Sensor Processing Lab", "May 2012 - Aug 2012")
-  #scope[Postgraduate summer internship at a university-affiliated R&D lab]
-
-  - Wrote MATLAB image-processing filters, analyzed radar data, and extended legacy C code and Bash scripts.
 ]
 
 = Education
