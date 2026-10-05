@@ -36,23 +36,21 @@
   #role("Machine Learning Engineer", "Apr 2023 - Jul 2024")
   #scope[Employee \~25 and ML engineer \#2 at a Series B healthcare startup that grew to 400+ employees]
 
-  - Designed and operated a multi-model ASR inference platform on GKE with NVIDIA Triton, processing #box[*4 audio-hours per second*] at daily peaks and up to 8 during backlog recovery.
+  - Designed and operated a multi-model speech-to-text (ASR) inference platform on GKE with NVIDIA Triton, processing *4 hours of audio per second* at daily peaks and up to 8 during backlog recovery.
 
   - Migrated Whisper ASR from *2,000+ NVIDIA L4 GPUs* to *100-200 H100s* by replacing CTranslate2 with TensorRT-LLM and increasing batch sizes, serving the same production load at lower cost per audio-minute.
 
-  - Deployed real-time ASR on GKE and H100s using NVIDIA Parakeet and Riva, streaming in-app transcription with sub-second end-to-end latency over WebSockets and gRPC.
-
-  - Partnered with Platform to establish shared GKE deployment practices, writing the company's first in-house Helm chart and helping move services from Cloud Functions and App Engine to GKE.
+  - Deployed real-time ASR on GKE and H100s using NVIDIA Parakeet and Riva, streaming in-app transcription with *sub-second end-to-end latency* over WebSockets and gRPC.
 
   - Implemented a unified FastAPI interface across ML services, standardizing upstream integration, observability, and operational patterns.
 
-  - Introduced Temporal for complex asynchronous workflows and championed its adoption across *nearly all engineering teams*.
+  - Introduced Temporal for complex asynchronous workflows and championed its adoption across nearly all engineering teams.
 
   - Created monorepo development and release tooling for dozens of engineers, enabling cross-component changes in a single PR and reducing support requests for PRs and deployments.
 
   - Mentored engineers in asynchronous Python and Helm deployment, enabling them to build and deploy new services independently.
 
-  - Led incident response for recurring egress port exhaustion and drove connection-reuse improvements across Python and JavaScript services.
+  - Led incident response for recurring networking issues and drove connection-reuse improvements across Python and JavaScript services.
 ]
 
 #employer("Socure", "Remote")[
@@ -98,11 +96,11 @@
   #role("Data Science Engineer", "Mar 2016 - Feb 2019")
   #scope[First full-time hire and lead engineer at a boutique data science consulting firm]
 
-  - Led development of an *ML investment platform* for the firm's largest client, combining proprietary signals and external financial data in ensembles of regression, random forests, gradient boosting, and neural networks.
+  - Led development of an ML investment platform for the firm's largest client, training model ensembles to produce long/short beta-neutral portfolios directing *\$100k+ of daily trading volume*.
 
   - Built a backtesting platform and automated model evaluation, backtesting, and daily prediction workflows on Pachyderm and GKE.
 
-  - Analyzed billions of geolocation pings with R and OpenStreetMap to support expert-witness testimony in a trucking fraud case.
+  - Analyzed *billions of geolocation pings* with R and OpenStreetMap to support expert-witness testimony in a trucking fraud case.
 
   - Developed and taught a week-long R and SQL workshop for analysts at a large federal institution.
 
@@ -111,9 +109,9 @@
   - Hired and mentored junior data scientists.
 ]
 
-#employer("University of Michigan School of Social Work", "Ann Arbor, MI")[
-  #role("Data Analyst (part-time)", "Aug 2015 - Dec 2017")
-  #scope[Industry consultant supporting the Child and Adolescent Data Lab (CADL)]
+#employer("Child and Adolescent Data Lab, University of Michigan", "Ann Arbor, MI")[
+  #role("Data Analyst", "Aug 2015 - Dec 2017")
+  #scope[Part-time industry consultant for a data-driven social work lab]
 
   - Built predictive models in R to classify journal abstracts, redesigned administrative data pipelines, and taught R, SQL, and Git across the School of Social Work.
 ]
@@ -125,9 +123,9 @@
 
   - Built a MySQL warehouse with PHP ingestion jobs to record nightly backup-server utilization across regions.
 
-  - Developed an R and Shiny dashboard to forecast regional storage growth and inform hardware purchasing decisions.
+  - Developed R Shiny dashboards to forecast regional storage growth and inform hardware purchasing decisions.
 
-  - Identified performance regressions and worked with engineering to determine their causes.
+  - Wrote parallel R jobs using MPI to calculate deduplication efficiency for a global backup service, overcoming memory constraints in long-running analyses.
 ]
 
 = Education
